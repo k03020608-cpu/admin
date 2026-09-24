@@ -1,0 +1,62 @@
+name: AdminTools
+version: '1.0.0'
+main: pl.admintools.AdminToolsPlugin
+api-version: '26.2'
+description: Narzędzia dla admina - vanish, zamrażanie, log zgonów, kick/mute z logiem
+
+commands:
+  zniknij:
+    description: Włącza/wyłącza tryb niewidzialny
+    usage: /zniknij
+    permission: admintools.vanish
+  zamroz:
+    description: Zamraża/odmraża gracza (blokada ruchu)
+    usage: /zamroz <gracz>
+    permission: admintools.freeze
+  zgony:
+    description: Pokazuje ostatnie zgony graczy
+    usage: /zgony [gracz] [ilość]
+    permission: admintools.zgony
+  kickpowodem:
+    description: Wyrzuca gracza z podanym powodem, zapisuje do logu
+    usage: /kickpowodem <gracz> <powód>
+    permission: admintools.kick
+  wycisz:
+    description: Wycisza gracza na X minut z powodem
+    usage: /wycisz <gracz> <minuty> <powód>
+    permission: admintools.mute
+  odcisz:
+    description: Zdejmuje wyciszenie gracza
+    usage: /odcisz <gracz>
+    permission: admintools.mute
+  wyciszeni:
+    description: Pokazuje listę aktualnie wyciszonych graczy
+    usage: /wyciszeni
+    permission: admintools.mute
+  dziennik:
+    description: Pokazuje log ostatnich akcji administracyjnych
+    usage: /dziennik [ilość]
+    permission: admintools.dziennik
+
+permissions:
+  admintools.vanish:
+    description: Pozwala użyć /zniknij
+    default: false
+  admintools.freeze:
+    description: Pozwala użyć /zamroz
+    default: false
+  admintools.zgony:
+    description: Pozwala użyć /zgony
+    default: false
+  admintools.kick:
+    description: Pozwala użyć /kickpowodem
+    default: false
+  admintools.mute:
+    description: Pozwala użyć /wycisz, /odcisz, /wyciszeni
+    default: false
+  admintools.dziennik:
+    description: Pozwala użyć /dziennik
+    default: false
+  admintools.bypass:
+    description: Gracz z tym uprawnieniem nie może zostać wyciszony (np. inny admin)
+    default: op
